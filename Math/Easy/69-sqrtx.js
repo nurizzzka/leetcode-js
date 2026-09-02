@@ -2,8 +2,8 @@
 // Problem: 69. Sqrt(x)
 // Difficulty: Easy
 // Topics: Math, Binary Search, Newton's Method
-// Runtime: 2 ms (Beats 41.7%)
-// Memory: 54.5 MB (Beats 97.6%)
+// Runtime: 1 ms (Beats 78.5%)
+// Memory: 55.6 MB (Beats 71.6%)
 // Submitted: Sep 2, 2026
 // Link: https://leetcode.com/problems/sqrtx/
 // ═══════════════════════════════════════════════════════
@@ -13,8 +13,7 @@
  * @return {number}
  */
 var mySqrt = function(x) {
-    if (x < 2) return x; 
-    let left = 0;
+    let left = 1;
     let right = x;
 
     while (left <= right) {
