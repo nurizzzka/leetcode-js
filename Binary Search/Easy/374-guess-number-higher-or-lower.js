@@ -2,8 +2,8 @@
 // Problem: 374. Guess Number Higher or Lower
 // Difficulty: Easy
 // Topics: Binary Search, Interactive
-// Runtime: 35 ms (Beats 90.1%)
-// Memory: 53.9 MB (Beats 25.8%)
+// Runtime: 44 ms (Beats 47.2%)
+// Memory: 54.3 MB (Beats 11.9%)
 // Submitted: Sep 3, 2026
 // Link: https://leetcode.com/problems/guess-number-higher-or-lower/
 // ═══════════════════════════════════════════════════════
@@ -32,5 +32,4 @@ var guessNumber = function(n) {
         else if (pick === -1) r = mid - 1;
         else l = mid + 1;
     }
-    return -1;
 };
