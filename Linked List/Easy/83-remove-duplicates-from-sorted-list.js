@@ -3,7 +3,7 @@
 // Difficulty: Easy
 // Topics: Linked List
 // Runtime: 1 ms (Beats 37.0%)
-// Memory: 57.2 MB (Beats 78.7%)
+// Memory: 58.6 MB (Beats 7.8%)
 // Submitted: Sep 4, 2026
 // Link: https://leetcode.com/problems/remove-duplicates-from-sorted-list/
 // ═══════════════════════════════════════════════════════
@@ -20,15 +20,11 @@
  * @return {ListNode}
  */
 var deleteDuplicates = function (head) {
-  if (head === null || head.next === null) {
-    return head;
-  }
   let list = head;
   while (list !== null && list.next !== null) {
     if (list.val === list.next.val) list.next = list.next.next;
     else list = list.next;
   }
-
   return head;
 };
 
