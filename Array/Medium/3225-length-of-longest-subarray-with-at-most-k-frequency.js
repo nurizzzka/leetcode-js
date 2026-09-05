@@ -2,8 +2,8 @@
 // Problem: 3225. Length of Longest Subarray With at Most K Frequency
 // Difficulty: Medium
 // Topics: Array, Hash Table, Sliding Window
-// Runtime: 51 ms (Beats 87.6%)
-// Memory: 75.2 MB (Beats 25.2%)
+// Runtime: N/A (Beats 0.0%)
+// Memory: N/A (Beats 0.0%)
 // Submitted: Sep 5, 2026
 // Link: https://leetcode.com/problems/length-of-longest-subarray-with-at-most-k-frequency/
 // ═══════════════════════════════════════════════════════
@@ -14,16 +14,27 @@
  * @return {number}
  */
 var maxSubarrayLength = function(nums, k) {
-    let l = 0;
-    let maxLen = 0;
-    let map = new Map();
-    for (let r = 0;r<nums.length;r++) {
-        map.set(nums[r], (map.get(nums[r]) || 0) + 1);
-        while (map.get(nums[r]) > k){
-            map.set(nums[l], map.get(nums[l]) - 1);
-            l++;
+     const countFreq = {};     
+    let countExceeding = 0;    
+    let result = 0;           
+    let left = 0;
+    let right = 0;
+    while (right < nums.length) {
+        const n = nums[right];
+        right++;
+        countFreq[n] = (countFreq[n] || 0) + 1;
+        if (countFreq[n] > k) {
+            countExceeding++;
         }
-        maxLen = Math.max(maxLen, r - l + 1);
-    }
-    return maxLen;
+        while (countExceeding > 0) {
+            const leftVal = nums[left];
+            left++;
+            countFreq[leftVal]--;
+            if (countFreq[leftVal] === k) {
+                countExceeding--;
+            }
+        }
+        result = Math.max(result, right - left);
+    }  
+    return result;
 };
